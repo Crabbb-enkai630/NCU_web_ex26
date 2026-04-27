@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Image Styling Corrected</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center; /* 改為置中，避免拉得太開 */
+            align-items: center;
+            gap: 0px; /* 圖片之間的間距 */
+            min-height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        /* 左右兩張圖的容器樣式 */
+        .img-standard {
+            width: 33%;
+            max-width: 250px; /* 加上最大寬度，防止在大螢幕上變太扁 */
+            height: 300px;
+            display: block;
+        }
+
+        /* 左邊：不變形 (維持直式比例，裁切多餘部分) */
+        .left {
+            border-radius: 18px;
+            object-fit: cover; 
+        }
+
+        /* 中間：圓形 */
+        .middle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 1px solid #333;
+            object-fit: cover;
+        }
+
+        /* 右邊：變形 (強行拉伸，會看到原本直的照片被壓扁) */
+        .right {
+            object-fit: fill; 
+        }
+    </style>
+</head>
+<body>
+
+    <img src="image1.png" alt="No Distortion" class="img-standard left">
+
+    <img src="image2.png" alt="Circle" class="middle">
+
+    <img src="image3.png" alt="Distortion" class="img-standard right">
+
+</body>
+</html>
